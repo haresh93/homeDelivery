@@ -1,0 +1,34 @@
+<div class="hotelsTab">
+    <div class="topPanelWrapper">
+        <div class="topPanel">
+            <input bs-form-control="" ng-model="name" type="text" spellcheck="false" autocomplete="off" label="Search" label-class="col-xs-3 col-sm-2 col-lg-1" class="ng-scope ng-pristine ng-valid needsclick form-control searchBox" placeholder="Search By Name"/>
+        </div>
+    </div>
+    
+
+    <div class="hotelsList">
+        <div class="scrollable">
+            <div class="scrollable-content section">
+                
+                <div class="list-group " toggle="off" bubble target="mainSidebar">
+                    <div ng-repeat="category in hotelCats">
+                        <a class="list-group-item" ng-click="toggle(category)">
+                            <h4 style="display:inline-block;"> {{category.GRP_NAME}}</h4>
+                            <i class="fa fa-2x" ng-class="category.open?'fa-caret-up':'fa-caret-down'" style="display:inline-block;float:right"></i>
+                        </a>
+                        <div ng-show="category.open" class="back">
+                            <div class="list-group" toggle="off" bubble target="mainSidebar" style="margin-left:3%">
+                                <a ng-click="hotelClicked(hotel)" class="list-group-item" ng-repeat="hotel in category.GRP_HOTELS">
+                                    <h4>{{hotel.HT_NAME}}</h4>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+         
+            </div>
+        </div>
+    </div>
+
+</div>

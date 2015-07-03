@@ -1,0 +1,34 @@
+<div class="order">
+    <div class="topPanelWrapper">
+        <div class="topPanel">
+            <h2>{{hotel}}</h2>
+        </div>
+    </div>
+    <div class="menuList">
+        <div class="scrollable">
+                <div class="scrollable-content section">
+
+                    <div class="list-group " toggle="off" bubble target="mainSidebar">
+                        <div ng-repeat="category in foodCats">
+                            <a class="list-group-item" style="padding:15px" ng-click="toggle(category)">
+                                <h3 style="display:inline-block;"> {{category.FCAT_NAME}}</h4>
+                                <i class="fa fa-2x" ng-class="category.open?'fa-caret-up':'fa-caret-down'" style="display:inline-block;float:right"></i>
+                            </a>
+                            <div ng-show="category.open" class="back">
+                                <div class="list-group" toggle="off" bubble target="mainSidebar" style="margin-left:3%">
+                                    <a ng-click="order(item)" class="list-group-item" ng-repeat="item in foodItems | filter: category.FCAT_ID">
+                                        <h4 style="display:inline-block">{{item.FI_NAME}}</h4>
+                                        <span style="float:right">
+                                            <i class="fa fa-rupee"></i>
+                                            <span style="font-weight:bold">{{item.FI_PRICE}}</span>
+                                        </span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

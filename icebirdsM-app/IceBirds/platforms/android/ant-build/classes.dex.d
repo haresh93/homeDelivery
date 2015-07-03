@@ -1,0 +1,24 @@
+H:\icebirdsM-app\IceBirds\platforms\android\ant-build\classes.dex : \
+H:\icebirdsM-app\IceBirds\platforms\android\ant-build\classes\com\icebirds\BuildConfig.class \
+H:\icebirdsM-app\IceBirds\platforms\android\ant-build\classes\com\icebirds\CordovaApp.class \
+H:\icebirdsM-app\IceBirds\platforms\android\ant-build\classes\com\icebirds\R$attr.class \
+H:\icebirdsM-app\IceBirds\platforms\android\ant-build\classes\com\icebirds\R$drawable.class \
+H:\icebirdsM-app\IceBirds\platforms\android\ant-build\classes\com\icebirds\R$string.class \
+H:\icebirdsM-app\IceBirds\platforms\android\ant-build\classes\com\icebirds\R$xml.class \
+H:\icebirdsM-app\IceBirds\platforms\android\ant-build\classes\com\icebirds\R.class \
+H:\icebirdsM-app\IceBirds\platforms\android\ant-build\classes\nl\xservices\plugins\Toast$1.class \
+H:\icebirdsM-app\IceBirds\platforms\android\ant-build\classes\nl\xservices\plugins\Toast.class \
+H:\icebirdsM-app\IceBirds\platforms\android\ant-build\classes\org\apache\cordova\networkinformation\NetworkManager$1.class \
+H:\icebirdsM-app\IceBirds\platforms\android\ant-build\classes\org\apache\cordova\networkinformation\NetworkManager.class \
+H:\icebirdsM-app\IceBirds\platforms\android\ant-build\classes\org\apache\cordova\splashscreen\SplashScreen$1.class \
+H:\icebirdsM-app\IceBirds\platforms\android\ant-build\classes\org\apache\cordova\splashscreen\SplashScreen$2.class \
+H:\icebirdsM-app\IceBirds\platforms\android\ant-build\classes\org\apache\cordova\splashscreen\SplashScreen$3.class \
+H:\icebirdsM-app\IceBirds\platforms\android\ant-build\classes\org\apache\cordova\splashscreen\SplashScreen$4.class \
+H:\icebirdsM-app\IceBirds\platforms\android\ant-build\classes\org\apache\cordova\splashscreen\SplashScreen$5$1.class \
+H:\icebirdsM-app\IceBirds\platforms\android\ant-build\classes\org\apache\cordova\splashscreen\SplashScreen$5.class \
+H:\icebirdsM-app\IceBirds\platforms\android\ant-build\classes\org\apache\cordova\splashscreen\SplashScreen$6$1.class \
+H:\icebirdsM-app\IceBirds\platforms\android\ant-build\classes\org\apache\cordova\splashscreen\SplashScreen$6.class \
+H:\icebirdsM-app\IceBirds\platforms\android\ant-build\classes\org\apache\cordova\splashscreen\SplashScreen$7.class \
+H:\icebirdsM-app\IceBirds\platforms\android\ant-build\classes\org\apache\cordova\splashscreen\SplashScreen.class \
+H:\icebirdsM-app\IceBirds\platforms\android\ant-build\classes\org\apache\cordova\wificonnect\WifiConnect.class \
+H:\icebirdsM-app\IceBirds\platforms\android\ant-build\dexedLibs\classes-08954ce32d257a435ae763cdfddc338b.jar \

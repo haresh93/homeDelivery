@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+xmlns:android="http://schemas.android.com/apk/res/android"
+           id="org.apache.cordova.wificonnect"
+      version="0.1.1">
+
+    <name>Wifi Network Connect</name>
+    <description>Cordova Wifi Connect Plugin</description>
+    <license>MIT</license>
+    <keywords>cordova,network,wifi,Connect,gkopevski</keywords>
+    <repo>https://github.com/gkopevski/plugin-cordovaWiFiConnect/</repo>
+
+    <js-module src="www/cordovaWifiConnect.js" name="wifi">
+        <clobbers target="wifi" />
+    </js-module>
+
+
+    <!-- android -->
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="WifiConnect">
+                <param name="android-package" value="org.apache.cordova.wificonnect.WifiConnect"/>
+            </feature>
+        </config-file>
+
+        <config-file target="AndroidManifest.xml" parent="/*">
+            <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+        </config-file>
+
+        <source-file src="src/android/WifiConnect.java" target-dir="src/org/apache/cordova/wificonnect" />
+
+    </platform>
+    
+</plugin>

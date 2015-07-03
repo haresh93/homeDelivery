@@ -1,0 +1,479 @@
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+* {
+    -webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
+}
+
+body {
+}
+
+/* Portrait layout (default) */
+.app {
+    background: #E2E2E2 !important;
+}
+
+
+
+/* Landscape layout (with min-width) */
+@media screen and (min-aspect-ratio: 1/1) and (min-width:400px) {
+    .app {
+        
+    }
+}
+
+div.brandBar{
+    background: -webkit-linear-gradient(rgb(205,8,20) 0%, rgb(157,11,17) 100%); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(rgb(205,8,20) 0%, rgb(157,11,17) 100%); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(rgb(205,8,20) 0%, rgb(157,11,17) 100%); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(rgb(205,8,20) 0%, rgb(157,11,17) 100%); /* Standard syntax */
+
+  color: white;
+}
+
+div.menu{
+    color:white !important;
+    margin-left: -15px !important;
+}
+
+h1 {
+    font-size:24px;
+    font-weight:normal;
+    margin:0px;
+    overflow:visible;
+    padding:0px;
+    text-align:center;
+}
+
+div.centerPanel{
+    margin-left:auto;
+    margin-right:auto;
+    width:70%;
+    margin-top:20%;
+}
+
+div.submitBtn {
+    width:20%;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+input.textBox {
+    border: 2px solid #ccc;
+    margin:auto;
+    text-align: center;
+}
+
+input.textBoxBottom {
+    border: none;
+    border-bottom: 1px solid #CCC;
+    margin:auto;
+    text-align: center;
+}
+
+div.nav-tabs > a.active {
+    background: -webkit-linear-gradient(rgb(157,11,17) 0%,rgb(205,8,20) 100%) !important; /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(rgb(157,11,17) 0%,rgb(205,8,20) 100%); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(rgb(157,11,17) 0%,rgb(205,8,20) 100%); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(rgb(157,11,17) 0%,rgb(205,8,20) 100%) !important; /* Standard syntax */
+}
+
+.abc {
+    opacity: 1;
+    width:100%;
+    height:100%;
+}
+.abc.ng-enter,
+.abc.ng-leave {
+    -webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    transition: all 1s ease;
+}
+.abc.ng-enter {
+    opacity: 0;
+}
+.abc.ng-enter-active {
+    opacity: 1;
+}
+.abc.ng-leave {
+    opacity: 1;
+}
+.abc.ng-leave-active {
+    opacity: 0;
+}
+
+#home{
+    width:100%;
+    height: 100%;
+}
+
+.topPanelWrapper {
+    box-shadow: 0 0 8px #959595 inset;
+    width:100%;
+    height:60px;
+    background: -webkit-linear-gradient(rgb(255,255,255) 0%,rgb(211,211,211) 100%) !important; /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(rgb(157,11,17) 0%,rgb(205,8,20) 100%); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(rgb(157,11,17) 0%,rgb(205,8,20) 100%); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(rgb(255, 255, 255) 0%,rgb(211, 211, 211) 100%) !important; /* Standard syntax */
+    margin:0px;
+    border:0px;
+}
+
+.topPanel{
+    width:90%;
+    margin:auto;
+}
+
+input.searchBox {
+    padding: 2px;
+    padding-left: 40px;
+    font-size: 17px;
+    background: url("../img/search-white-1.png") no-repeat 10px 2px #fcfcfc;
+    border: 2px solid rgb(161,161,161);
+    border-radius:16px;
+    margin:auto;
+    width:70%;
+    display:inline-block !important;
+    margin-top:10px;
+}
+
+button.letsGo {
+    display: inline-block;
+font-family: "proxima_nova_semibold",arial,tahoma,verdana;
+background: -webkit-linear-gradient(rgb(55, 211, 51), rgb(1, 169, 16));
+background: -o-linear-gradient(rgb(55, 211, 51) , rgb(1, 169, 16));
+background: -moz-linear-gradient(rgb(55, 211, 51) , rgb(1, 169, 16));
+background: linear-gradient(rgb(55, 211, 51) , rgb(1, 169, 16));
+margin-left: 5px;
+color: #fff;
+width: 30%px;
+height: 40px;
+font-size: 20px;
+padding-top: 0.2em;
+padding-bottom: 0.55em;
+border-radius: 8px;
+margin-top:10px;
+}
+
+#map{
+    width:100%;
+    height:90%;
+}
+
+.hotelsTab {
+    width:100%;
+    height:100%;
+}
+
+.hotelsList {
+    position:relative;
+    width:100%;
+    height:100%;   
+}
+
+div.pac-container {
+    top : 99px !important;
+}
+
+.order {
+    position:relative;
+    width:100%;
+    height:100%;
+    background: #E2E2E2 !important;
+}
+
+.Panel {
+    width:98%;
+    margin: 20px auto;
+    background: white;
+    box-shadow: 0 0 15px #959595;
+    border-radius:5px;
+}
+
+.heading {
+    margin-left:19px;
+    font-size:20px;
+}
+
+.headWrapper {
+    position:relative;
+    margin-top:15px;
+    border-bottom:1px solid rgb(199,199,199);
+}
+
+.content {
+    display:inline-block;
+    margin-top:10px;
+    margin-left:2%;
+}
+
+button.change {
+    display: inline-block;
+font-family: "proxima_nova_semibold",arial,tahoma,verdana;
+background: -webkit-linear-gradient(rgb(115, 115, 115), rgb(171, 171, 171));
+background: -o-linear-gradient(rgb(115, 115, 115), rgb(171, 171, 171));
+background: -moz-linear-gradient(rgb(115, 115, 115), rgb(171, 171, 171));
+background: linear-gradient(rgb(115, 115, 115), rgb(171, 171, 171));
+margin-left: 5px;
+color: #fff;
+width: 70px;
+height: 30px;
+font-size: 15px;
+padding-top: 0.2em;
+padding-bottom: 0.55em;
+border-radius: 8px;
+margin-top:10px;
+margin-right:10px;
+}
+.back{
+    background: -webkit-linear-gradient(rgb(205,8,20) 0%, rgb(157,11,17) 100%) !important; /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(rgb(205,8,20) 0%, rgb(157,11,17) 100%); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(rgb(205,8,20) 0%, rgb(157,11,17) 100%); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(rgb(205,8,20) 0%, rgb(157,11,17) 100%) !important; /* Standard syntax */
+}
+#qty {
+    display: inline-block;
+    border: none;
+    border-bottom: 1px solid #CCC;
+    text-align: center;
+    width:60px;
+}
+
+.options {
+    float:right;
+}
+
+
+img[src*="gstatic.com/"], img[src*="googleapis.com/"] {
+max-width: none;
+}
+
+.gm-style-iw {
+    overflow:hidden!important;
+    height:55px!important; //for 3 lines of text in the InfoWindow
+}
+
+.modal {
+display: block !important;
+}
+
+#btnAddHotel {
+    width:100px;
+}
+
+#btnCheckout {
+    width:80px;
+}
+
+.FoodItemsList {
+    position:relative;
+    width:100%;
+    height:90%;
+}
+
+
+.restaurantHeading {
+    
+}
+
+.app-content-loading {
+    text-align: center;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+}
+
+.loading-spinner {
+    position: absolute;
+    font-size: 50px !important;
+    left: 50%;
+    top: 50%;
+    margin-left: -25px;
+    margin-top: -25px;
+    z-index:1050;
+}
+
+.spinOpacity {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1040;
+    background-color: #000;
+    opacity: .5;
+}
+
+.cartRow > td {
+    padding-bottom:10px;
+}
+
+.pressButton {
+    width:30px;
+    display:inline-block;
+    font-size:20px
+}
+
+.card {
+    padding:1px;
+    position:absolute;
+    font-size:15px;
+    background:rgb(255,155,0);
+    border-radius:5px;
+    top:0;
+    z-index:5;
+    right:10px;
+    cursor:pointer;
+    min-width:15px;
+    text-align:center;
+}
+
+#deliveryAddress {
+    width: 100%;
+    
+}
+
+
+#Grid{
+  margin-bottom: 40px;
+  text-align: justify;
+  font-size: 0.1px;
+}
+
+#Grid li{
+  display: inline-block;
+  background-size:100% 100%;
+    box-shadow: 0 0 8px #959595;
+    width: 30%;
+    margin-right:2%;
+  padding-top: 23%; /* Used instead of height to give elements fluid, width-based height */
+  margin-bottom: 2.5%;
+}
+
+#Grid li:hover{
+    border:2px solid blue;
+}
+
+#Grid:after{
+  content: '';
+  display: inline-block;
+  width: 100%;
+  border-top: 10px dashed #922d8d; /* Border added to make element visible for demonstration purposes */
+}
+
+#Grid .placeholder{
+  padding: 0;
+  border-top: 10px solid #922d8d; /* Border added to make element visible for demonstration purposes */
+}
+
+/* -- MEDIA QUERIES DEFINING RESPONSIVE LAYOUTS -- */
+
+/* 3 COL */
+
+@media (max-width: 800px){
+  #Grid li{
+    width: 31%;
+    padding-top: 31%;
+    margin-bottom: 3%;
+  }
+}
+
+/* 2 COL */
+
+@media (max-width: 600px){
+  #Grid li{
+    width: 30%;
+    padding-top: 30%;
+    margin-bottom: 4%;
+  }
+}
+
+/* SINGLE COL */
+
+@media (max-width: 400px){
+  #Grid li{
+    width: 40%;
+    margin-left:5%;
+    margin-bottom: 5%;
+  }
+}
+
+.categoryName {
+    color: white;
+font-size: 24px;
+text-shadow: 0 0 15px black, 0 0 25px black, 0 0 35px black;
+text-align:center;
+}
+
+.tiles {
+    padding : 0px !important;
+}
+
+.animate-slide {
+  top: 0;
+  perspective: 1000;
+}
+
+.animate-slide.ng-hide-add,
+.animate-slide.ng-hide-remove {
+  display:block!important;
+}
+
+.animate-slide.ng-hide-remove.ng-hide-remove-active {
+  -webkit-animation:0.5s slide-up;
+  animation:0.5s slide-up;
+}
+
+.animate-slide.ng-hide-add.ng-hide-add-active {
+  -webkit-animation:0.5s slide-right;
+  animation:0.5s slide-right;
+}
+
+.animate-slide.ng-hide {
+  left:100%;
+  display:block!important;
+}
+
+/* Chrome, Safari, Opera */
+@-webkit-keyframes slide-up
+{
+  0%   {left:100%;}
+  100%  {left:0%;}
+}
+
+/* Standard syntax */
+@keyframes slide-up
+{
+  0%   {left:100%;}
+  100%  {left:0%;}
+}
+
+/* Chrome, Safari, Opera */
+@-webkit-keyframes slide-right
+{
+  0%  {left:0%;}
+  100%   {left:100%;}
+}
+
+/* Standard syntax */
+@keyframes slide-right
+{
+ 0%  {left:0%;}
+  100%   {right:100%;}
+}

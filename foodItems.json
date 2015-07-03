@@ -1,0 +1,211 @@
+{
+    "FI_ID" : 10101,
+    "FI_NAME" : "ROTI",
+    "FI_PRICE" : 7,
+    "FI_CAT_ID" : 90904
+}
+{
+    "FI_ID" : 10102,
+    "FI_NAME" : "Butter ROTI",
+    "FI_PRICE" : 10,
+    "FI_CAT_ID" : 90904
+}
+{
+    "FI_ID" : 10103,
+    "FI_NAME" : "Tandoori ROTI",
+    "FI_PRICE" : 10,
+    "FI_CAT_ID" : 90904
+}
+{
+    "FI_ID" : 10104,
+    "FI_NAME" : "Plain NAAN",
+    "FI_PRICE" : 10,
+    "FI_CAT_ID" : 90903
+}
+
+{
+    "FI_ID" : 10105,
+    "FI_NAME" : "Butter NAAN",
+    "FI_PRICE" : 12,
+    "FI_CAT_ID" : 90903
+}
+{
+    "FI_ID" : 10106,
+    "FI_NAME" : "Plain Kulcha",
+    "FI_PRICE" : 15,
+    "FI_CAT_ID" : 90903
+}
+{
+    "FI_ID" : 10107,
+    "FI_NAME" : "Butter Kulcha",
+    "FI_PRICE" : 20,
+    "FI_CAT_ID" : 90903
+}
+{
+    "FI_ID" : 10108,
+    "FI_NAME" : "Veg Biryani",
+    "FI_PRICE" : 150,
+    "FI_CAT_ID" : 90901
+}
+{
+    "FI_ID" : 10109,
+    "FI_NAME" : "Veg Fried Rice",
+    "FI_PRICE" : 125,
+    "FI_CAT_ID" : 90901
+}
+{
+    "FI_ID" : 10114,
+    "FI_NAME" : "Egg Biryani",
+    "FI_PRICE" : 200,
+    "FI_CAT_ID" : 90901
+}
+{
+    "FI_ID" : 10115,
+    "FI_NAME" : "Egg Fried Rice",
+    "FI_PRICE" : 180,
+    "FI_CAT_ID" : 90901
+}
+{
+    "FI_ID" : 10110,
+    "FI_NAME" : "Chicken Biryani",
+    "FI_PRICE" : 250,
+    "FI_CAT_ID" : 90902
+}
+{
+    "FI_ID" : 10111,
+    "FI_NAME" : "Chicken Biryani(BoneLess)",
+    "FI_PRICE" : 250,
+    "FI_CAT_ID" : 90902
+}
+{
+    "FI_ID" : 10112,
+    "FI_NAME" : "Mutton Biryani",
+    "FI_PRICE" : 300,
+    "FI_CAT_ID" : 90902
+}
+{
+    "FI_ID" : 10113,
+    "FI_NAME" : "Chicken Fried Rice",
+    "FI_PRICE" : 225,
+    "FI_CAT_ID" : 90902
+}
+{
+    "FI_ID" : 10116,
+    "FI_NAME" : "Veg Hot n Spicy Cheese Pizza",
+    "FI_PRICE" : 225,
+    "FI_CAT_ID" : 90905
+}
+{
+    "FI_ID" : 1017,
+    "FI_NAME" : "Veg Cheese Margarita Pizza",
+    "FI_PRICE" : 250,
+    "FI_CAT_ID" : 90905
+}
+{
+    "FI_ID" : 10118,
+    "FI_NAME" : "Paneer Overloaded big Pizza",
+    "FI_PRICE" : 225,
+    "FI_CAT_ID" : 90905
+}
+{
+    "FI_ID" : 10119,
+    "FI_NAME" : "Chicken Pizza",
+    "FI_PRICE" : 300,
+    "FI_CAT_ID" : 90910
+}
+{
+    "FI_ID" : 10120,
+    "FI_NAME" : "Chicken Margarita Pizza",
+    "FI_PRICE" : 325,
+    "FI_CAT_ID" : 90910
+}
+{
+    "FI_ID" : 10121,
+    "FI_NAME" : "Chicken Cheese Pizza",
+    "FI_PRICE" : 300,
+    "FI_CAT_ID" : 90910
+}
+{
+    "FI_ID" : 10122,
+    "FI_NAME" : "Veg Paneer Burger",
+    "FI_PRICE" : 125,
+    "FI_CAT_ID" : 90906
+}
+{
+    "FI_ID" : 10123,
+    "FI_NAME" : "Veg Cheese Mayonnaise Burger",
+    "FI_PRICE" : 145,
+    "FI_CAT_ID" : 90906
+}
+{
+    "FI_ID" : 10124,
+    "FI_NAME" : "Veggie Burger",
+    "FI_PRICE" : 145,
+    "FI_CAT_ID" : 90906
+}
+{
+    "FI_ID" : 10125,
+    "FI_NAME" : "Chicken Burger",
+    "FI_PRICE" : 165,
+    "FI_CAT_ID" : 90909
+}
+{
+    "FI_ID" : 10126,
+    "FI_NAME" : "Chicken Cheese Burger",
+    "FI_PRICE" : 175,
+    "FI_CAT_ID" : 90909
+}
+{
+    "FI_ID" : 10127,
+    "FI_NAME" : "Chicken Cheese Mayonaisse Burger",
+    "FI_PRICE" : 190,
+    "FI_CAT_ID" : 90909
+}
+{
+    "FI_ID" : 10128,
+    "FI_NAME" : "Paneer Butter Masala",
+    "FI_PRICE" : 120,
+    "FI_CAT_ID" : 90907
+}
+{
+    "FI_ID" : 10129,
+    "FI_NAME" : "Green Peas Masala",
+    "FI_PRICE" : 110,
+    "FI_CAT_ID" : 90907
+}
+{
+    "FI_ID" : 10130,
+    "FI_NAME" : "Palak Paneer",
+    "FI_PRICE" : 120,
+    "FI_CAT_ID" : 90907
+}
+{
+    "FI_ID" : 10131,
+    "FI_NAME" : "Tomato Cashew Curry",
+    "FI_PRICE" : 120,
+    "FI_CAT_ID" : 90907
+}
+{
+    "FI_ID" : 10132,
+    "FI_NAME" : "Mix Veg",
+    "FI_PRICE" : 100,
+    "FI_CAT_ID" : 90907
+}
+{
+    "FI_ID" : 10133,
+    "FI_NAME" : "Laddu",
+    "FI_PRICE" : 180,
+    "FI_CAT_ID" : 90908
+}
+{
+    "FI_ID" : 10134,
+    "FI_NAME" : "Gulab Jamun",
+    "FI_PRICE" : 180,
+    "FI_CAT_ID" : 90908
+}
+{
+    "FI_ID" : 10135,
+    "FI_NAME" : "Milk Kova",
+    "FI_PRICE" : 180,
+    "FI_CAT_ID" : 90908
+}

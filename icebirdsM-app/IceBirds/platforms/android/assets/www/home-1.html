@@ -1,0 +1,24 @@
+<div class="hotelsTab">
+    <div class="hotelsList">
+        <div class="scrollable">
+            <div class="scrollable-content section tiles">
+                <ul id="Grid" style="padding-left:0%">
+                    <li ng-repeat="category in hotelCats" ng-style="set_background(category)" ng-click="showHotels(category)">
+                        <h2 class="categoryName">{{category.GRP_NAME}}</h2>
+                    </li>
+                </ul>
+                
+            </div>
+        </div>
+        <div class="scrollable animate-slide" ng-show="showHotelsList">
+            <div class="scrollable-content section tiles">
+                <div class="list-group" toggle="off" bubble target="mainSidebar" style="margin-left:3%">
+                    <a ng-click="hotelClicked(hotel)" class="list-group-item" ng-repeat="hotel in activeCategory.GRP_HOTELS">
+                        <h4>{{hotel.HT_NAME}}</h4>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
