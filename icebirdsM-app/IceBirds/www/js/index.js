@@ -124,7 +124,7 @@ iceBirds.config(function($routeProvider) {
 });
 
 iceBirds.run(function($rootScope,$location,$http,$cordovaToast,SharedState){
-  $rootScope.serverURI = 'http://172.16.7.63:12345';
+  $rootScope.serverURI = 'http://54.152.110.144:12345';
 
     $rootScope.proceed = function(){
         if($rootScope.totalBill == 0)
