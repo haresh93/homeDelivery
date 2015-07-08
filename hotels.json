@@ -1,11 +1,11 @@
-[{
+{
   "_id" : ObjectId("5489006239d333021094bb74"),
   "HT_ID" : 101,
   "HT_NAME" : "DOLPHIN Restaurants",
   "HT_ADDR" : "Purna Market",
   "HT_SHORT_ADDR" : "Near Police Barracks",
   "HT_Contact" : "9660003707"
-},
+}
 {
   "_id" : ObjectId("5489007b39d333021094bb75"),
   "HT_ID" : 102,
@@ -13,7 +13,7 @@
   "HT_ADDR" : "MVP Colony",
   "HT_SHORT_ADDR" : "Near Venkojipalem",
   "HT_Contact" : "9573907258"
-},
+}
 {
   "_id" : ObjectId("548908be39d333021094bb76"),
   "HT_ID" : 103,
@@ -21,7 +21,7 @@
   "HT_ADDR" : "KGH Up road",
   "HT_SHORT_ADDR" : "Near Collector Office",
   "HT_Contact" : "9660003707"
-},
+}
 {
   "_id" : ObjectId("548908be39d333021094bb77"),
   "HT_ID" : 104,
@@ -29,7 +29,7 @@
   "HT_ADDR" : "Beach Road",
   "HT_SHORT_ADDR" : "Near Chocolate Room",
   "HT_Contact" : "9660003707"
-},
+}
 {
   "_id" : ObjectId("548908be39d333021094bb78"),
   "HT_ID" : 105,
@@ -37,7 +37,7 @@
   "HT_ADDR" : "PM Palem",
   "HT_SHORT_ADDR" : "Near Stadium",
   "HT_Contact" : "9660003707"
-},
+}
 {
   "_id" : ObjectId("548908be39d333021094bb79"),
   "HT_ID" : 106,
@@ -45,7 +45,7 @@
   "HT_ADDR" : "Siripuram",
   "HT_SHORT_ADDR" : "Near Dutt Island",
   "HT_Contact" : "9660003707"
-},
+}
 {
   "_id" : ObjectId("548908be39d333021094bb7a"),
   "HT_ID" : 107,
@@ -53,7 +53,7 @@
   "HT_ADDR" : "Siripuram",
   "HT_SHORT_ADDR" : "Near Tycoon",
   "HT_Contact" : "9660003707"
-},
+}
 {
   "_id" : ObjectId("548908be39d333021094bb7b"),
   "HT_ID" : 108,
@@ -61,7 +61,7 @@
   "HT_ADDR" : "DwarakaNagar",
   "HT_SHORT_ADDR" : "Near Diamond Park",
   "HT_Contact" : "9660003707"
-},
+}
 {
   "_id" : ObjectId("548908be39d333021094bb7c"),
   "HT_ID" : 109,
@@ -69,7 +69,7 @@
   "HT_ADDR" : "Siripuram",
   "HT_SHORT_ADDR" : "Dutt Island",
   "HT_Contact" : "9660003707"
-},
+}
 {
   "_id" : ObjectId("548908be39d333021094bb7d"),
   "HT_ID" : 110,
@@ -77,7 +77,7 @@
   "HT_ADDR" : "Jagadamba",
   "HT_SHORT_ADDR" : "Near Seven Hills Hospital",
   "HT_Contact" : "9660003707"
-},
+}
 
 {
   "_id" : ObjectId("548908be39d333021094bb7e"),
@@ -86,4 +86,4 @@
   "HT_ADDR" : "Siripuram",
   "HT_SHORT_ADDR" : "Near Dutt Island",
   "HT_Contact" : "9660003707"
-}]
+}

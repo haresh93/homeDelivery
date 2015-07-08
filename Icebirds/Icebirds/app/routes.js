@@ -27,7 +27,7 @@ module.exports = function(app,connection) {
 	    }
 	});
 	app.post('/login', function(req,res){
-		
+
 		User.findOne({USR_MOBILE_NUM: req.body.mobileNumber},function(err,user){
 			var result;
 			if(err) throw err;
@@ -173,7 +173,7 @@ module.exports = function(app,connection) {
 							if(err)
 								throw err;
 						});
-						
+
 						flag = 1;
 						CART.aggregate({
 									$match : {
@@ -196,7 +196,7 @@ module.exports = function(app,connection) {
 										result = {returnCode:"SUCCESS",data:{cart: cartItems, totalBill: summary[0].totalBill, itemsQty: summary[0].itemsQty},errorCode:null};
 										res.json(result);
 									});
-									
+
 								}
 							);
 						break;
@@ -235,9 +235,9 @@ module.exports = function(app,connection) {
 									CART.find({CART_MOBILE_NUM:req.body.mobileNumber},function(err,cartItems){
 										console.log(cartItems);
 										result = {returnCode:"SUCCESS",data:{cart: cartItems, totalBill: summary[0].totalBill, itemsQty: summary[0].itemsQty},errorCode:null};
-										res.json(result);	
+										res.json(result);
 									});
-									
+
 								}
 							);
 					});
@@ -252,7 +252,7 @@ module.exports = function(app,connection) {
 				FoodItem.find({FI_ID:req.body.item},function(err,foodItem){
 					var newCartItem = new CART({
 					CART_MOBILE_NUM: req.body.mobileNumber,
-					CART_HOTEL:req.body.hotel, 
+					CART_HOTEL:req.body.hotel,
 					CART_ITEMS: [{
 						item:req.body.item,
 						qty: req.body.qty,
@@ -292,12 +292,12 @@ module.exports = function(app,connection) {
 			}
 
 
-			
-			
+
+
 			});
 		});
 
-		
+
 
 
 		app.post('/cartItems',function(req,res){
@@ -507,7 +507,7 @@ module.exports = function(app,connection) {
 							    from: 'Home Delivery <haresh93@gmail.com>', // sender address
 							    to: user[0].USR_EMAIL, // list of receivers
 							    subject: 'Order Information', // Subject line
-							    text: "Your Order is placed and the details of your order are Order Number:"+orderNum+" and it will be Delivered to "+req.body.deliveryAddress;
+							    text: "Your Order is placed and the details of your order are Order Number:"+orderNum+" and it will be Delivered to "+req.body.deliveryAddress
 							};
 							CART.remove({CART_MOBILE_NUM:req.body.mobileNumber},function(err){
 					        	if(err)
@@ -527,15 +527,10 @@ module.exports = function(app,connection) {
 
 					});
 				});
-				
+
 			});
-			
+
 
 		});
-
-
-		
-		
-
 
 }

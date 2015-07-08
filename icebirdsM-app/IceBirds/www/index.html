@@ -23,17 +23,18 @@
         <meta name="format-detection" content="telephone=no" />
         <meta name="msapplication-tap-highlight" content="no" />
         <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
-        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=medium-dpi" />
         <link rel="stylesheet" type="text/css" href="css/index.css" />
         <link rel="stylesheet" href="css/autocomplete.css">
 
         <link rel="stylesheet" href="css/mobile-angular-ui-hover.min.css" />
         <link rel="stylesheet" href="css/mobile-angular-ui-base.min.css" />
         <link rel="stylesheet" href="css/mobile-angular-ui-desktop.min.css" />
+        <link rel="stylesheet" href = "css/angular-carousel.css" />
 
-        
         <link rel="stylesheet" href="css/Font-Awesome-master/css/font-awesome.css" />
         <script src="https://maps.googleapis.com/maps/api/js?libraries=places"></script>
+        <script src="js/jquery.min.js"></script>
         <script src="js/angular.min.js"></script>
         <script src="js/angular-route.min.js"></script>
         <script src="js/angular-animate.min.js"></script>
@@ -41,6 +42,7 @@
         <script src="js/mobile-angular-ui.min.js"></script>
         <script src="js/autocomplete.js"></script>
         <script src="js/ng-cordova.min.js"></script>
+        <script src="js/angular-carousel.min.js"></script>
         <link href="http://code.google.com/apis/maps/documentation/javascript/examples/default.css" rel="stylesheet" type="text/css" />
         <script type="text/javascript" src="cordova.js"></script>
 
@@ -56,12 +58,9 @@
                 <div class="scrollable">
                   <div class="scrollable-content">
                     <div class="list-group " toggle="off" bubble target="mainSidebar">
-                      <a class="list-group-item" ng-click="clicked(1)"><i class="fa fa-user pull-left" style="margin-top:5px;margin-right:10px"></i>My Profile</a>
-                      <a class="list-group-item" ng-click="clicked(1)"><i class="fa fa-user pull-left" style="margin-top:5px;margin-right:10px"></i>My Addresses</a>                      
-                      <a class="list-group-item" ng-click="clicked(2)"><i class="fa fa-briefcase pull-left" style="margin-top:5px;margin-right:10px"></i>Account History</a>
-                      <a class="list-group-item" ng-click="clicked(3)"><i class="fa fa-shopping-cart pull-left" style="margin-top:5px;margin-right:10px"></i>Cart</a>
-                      <a class="list-group-item" ng-click="clicked(4)"><i class="fa fa-sign-out pull-left" style="margin-top:5px;margin-right:10px"></i>SignOut</a>
-                    
+                      <a class="list-group-item" ng-click="clicked(4)"><i class="fa fa-shopping-cart pull-left" style="margin-top:5px;margin-right:10px"></i>Cart</a>
+                      <a class="list-group-item" ng-click="clicked(5)"><i class="fa fa-sign-out pull-left" style="margin-top:5px;margin-right:10px"></i>SignOut</a>
+
                     </div>
 
                   </div>
@@ -85,7 +84,7 @@
                             <a class="list-group-item" ng-repeat="foodItem in cart.items" ng-click="updateOrder(foodItem,cart.hotel)">
                                 <h4 style="display:inline-block">{{foodItem.item.FI_NAME}}</h4>
                                 <span style="float:right">
-                                    <span style="font-weight:bold">{{foodItem.qty}}&nbsp; 
+                                    <span style="font-weight:bold">{{foodItem.qty}}&nbsp;
                                             <i class="fa fa-close"></i> &nbsp; <i class="fa fa-rupee"></i>{{foodItem.item.FI_PRICE}}</span>
                                 </span>
                             </a>
@@ -120,7 +119,7 @@
                                 <td style="padding-top:10px"><i class="fa fa-rupee"></i> {{totalBill}}</td>
                             </tr>
 
-                        </table> 
+                        </table>
                         <button class="letsGo" ng-click="proceed()" data-style="expand-right" style="width:100%;background:rgb(1,178,1)">
                             Proceed To CheckOut
                         </button>
@@ -215,7 +214,7 @@
                         <li>Food will be delivered within 40 mins of the order checkout</li>
                         <li>Delivery duration may change depending on the distance of place of delivery</li>
                     </ul>
-                    
+
                 </div>
                 <div class="modal-footer">
                   <button ui-turn-off="modal3" class="btn btn-default">Cancel</button>
@@ -226,7 +225,7 @@
           </div>
         </div>
         <div class="app" ng-swipe-right="Ui.turnOn('uiSidebarLeft')" ng-swipe-left="Ui.turnOn('uiSidebarRight')">
- 
+
             <div class="brandBar navbar navbar-app navbar-absolute-top">
                 <div class="btn-group pull-left">
                       <div ui-toggle="uiSidebarLeft" class="btn sidebar-toggle menu">
@@ -237,20 +236,20 @@
                     <span>{{title}}</span>
                 </div>
 
-                
+
 
                 <div class="btn-group pull-right" ui-yield-to="navbarAction" ng-show="$root.loggedIn">
-                    
+
                     <span class="card" ui-toggle="uiSidebarRight">{{$root.itemsQty}}</span>
                     <div ui-toggle="uiSidebarRight" class="btn ng-scope" style="color:white">
                         <i class="fa fa-shopping-cart fa-2x"></i>
                     </div>
                 </div>
-         
+
             </div>
-         
+
             <div class="brandBar navbar navbar-app navbar-absolute-bottom" ng-controller="bottomNavBarController">
-         
+
                 <div class="btn-group justified nav-tabs" ng-hide="loggedIn" >
                     <a href="#/login" class="btn btn-default btn-icon-only" style="color: white" toggle="on" active-class="active"><i class="fa fa-sign-in" style="margin-right:5px"></i>Sign In</a>
                     <a href="#/register" class="btn btn-default btn-icon-only" style="color: white" toggle="on" active-class="active"><i class="fa fa-chevron-circle-up" style="margin-right:5px"></i>Sign Up</a>
@@ -262,7 +261,7 @@
                     <a href="#/order" class="btn btn-default btn-icon-only" style="color: white" toggle="on" active-class="active"><i class="fa fa-list" style="margin-right:5px"></i>Menu</a>
                     <a href="#/aboutUs" class="btn btn-default btn-icon-only" style="color: white" toggle="on" active-class="active"><i class="fa fa-at" style="margin-right:5px"></i>About Us</a>
                 </div>
-         
+
             </div>
             <div class="app-body">
                 <div ng-show="loading" class="app-content-loading">
@@ -273,7 +272,7 @@
 
             </div>
 
-         
+
         </div>
     </body>
 </html>

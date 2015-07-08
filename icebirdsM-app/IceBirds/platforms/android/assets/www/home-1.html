@@ -2,12 +2,12 @@
     <div class="hotelsList">
         <div class="scrollable">
             <div class="scrollable-content section tiles">
-                <ul id="Grid" style="padding-left:0%">
+                <ul id="Grid" style="padding-left:0%;margin-left:2%;margin-top:2%">
                     <li ng-repeat="category in hotelCats" ng-style="set_background(category)" ng-click="showHotels(category)">
                         <h2 class="categoryName">{{category.GRP_NAME}}</h2>
                     </li>
                 </ul>
-                
+
             </div>
         </div>
         <div class="scrollable animate-slide" ng-show="showHotelsList">

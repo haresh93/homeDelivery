@@ -69,8 +69,8 @@ app.initialize();
 function order(htId){
     var $body = angular.element(document.body);   // 1
     var $rootScope = $body.scope().$root;         // 2
-    
-    $rootScope.$apply(function () {        
+
+    $rootScope.$apply(function () {
     console.log(htId);       // 3
         $rootScope.$broadcast('orderClicked',htId);
     });
@@ -82,7 +82,8 @@ var iceBirds = angular.module('IceBirds', [
     "ngTouch",
     "mobile-angular-ui",
     "google.places",
-    "ngCordova"
+    "ngCordova",
+    "angular-carousel"
 ]);
 iceBirds.config(['$httpProvider', function($httpProvider) {
         $httpProvider.defaults.useXDomain = true;
@@ -123,6 +124,8 @@ iceBirds.config(function($routeProvider) {
 });
 
 iceBirds.run(function($rootScope,$location,$http,$cordovaToast,SharedState){
+  $rootScope.serverURI = 'http://172.16.7.63:12345';
+
     $rootScope.proceed = function(){
         if($rootScope.totalBill == 0)
         {
@@ -188,7 +191,7 @@ iceBirds.run(function($rootScope,$location,$http,$cordovaToast,SharedState){
 
     var req = {
            method: 'GET',
-            url: 'http://estater.in:12345/hotels',
+            url: $rootScope.serverURI + '/hotels',
             headers: {'Content-Type': 'application/json'},
             data: {mobileNumber: $rootScope.mobileNumber}
         };
@@ -198,7 +201,7 @@ iceBirds.run(function($rootScope,$location,$http,$cordovaToast,SharedState){
             {
                 console.log(data.data.assArray);
                 $rootScope.hotelsKey = data.data.assArray;
-                
+
             }
             else
             {
@@ -214,7 +217,7 @@ iceBirds.run(function($rootScope,$location,$http,$cordovaToast,SharedState){
         });
     req = {
            method: 'GET',
-            url: 'http://estater.in:12345/foodItems',
+            url: $rootScope.serverURI + '/foodItems',
             headers: {'Content-Type': 'application/json'}
         };
         $http(req).
@@ -235,7 +238,7 @@ iceBirds.run(function($rootScope,$location,$http,$cordovaToast,SharedState){
     $rootScope.$on('fetchCartItems', function(){
         req = {
            method: 'POST',
-            url: 'http://estater.in:12345/cartItems',
+            url: $rootScope.serverURI + '/cartItems',
             headers: {'Content-Type': 'application/json'},
             data: {mobileNumber: $rootScope.mobileNumber}
         };
@@ -271,11 +274,11 @@ iceBirds.run(function($rootScope,$location,$http,$cordovaToast,SharedState){
         $rootScope.loading = false;
     });
     $rootScope.$on('addToCart',function(event,item,quantity){
-        
+
         var orderItem = {mobileNumber:$rootScope.mobileNumber, hotel:$rootScope.hotel.HT_ID, item:item.FI_ID, qty:quantity};
         var req = {
            method: 'POST',
-            url: 'http://estater.in:12345/addToCart',
+            url: $rootScope.serverURI + '/addToCart',
             headers: {'Content-Type': 'application/json'},
             data: orderItem
         };
@@ -326,12 +329,12 @@ iceBirds.run(function($rootScope,$location,$http,$cordovaToast,SharedState){
                     console.log("got it");
                     $rootScope.hotel = $rootScope.hotels[hotel];
                     break;
-            } 
+            }
         }
         $location.path("/order");
     });
 
-    
+
     console.log(navigator.onLine);
     $rootScope.$on('userLoggedIn',function(event,mobileNumber,name){
         $rootScope.loggedIn = true;
@@ -345,7 +348,7 @@ iceBirds.run(function($rootScope,$location,$http,$cordovaToast,SharedState){
         window.localStorage.userName = name;
         req = {
            method: 'POST',
-            url: 'http://estater.in:12345/cartItems',
+            url: $rootScope.serverURI + '/cartItems',
             headers: {'Content-Type': 'application/json'},
             data: {mobileNumber: $rootScope.mobileNumber}
         };
@@ -398,12 +401,32 @@ iceBirds.controller("bottomNavBarController", function($rootScope,$scope){
 
 
 
-iceBirds.controller("signInController",function($rootScope,$scope,$http,$location,$cordovaToast){
+iceBirds.controller("signInController",function($rootScope,$scope,$http,$location,$interval,$cordovaToast){
     $rootScope.title = "Home Delivery";
     $scope.user = {
         mobileNumber: "",
         password: ""
     }
+
+    $scope.colors = ["#fc0003", "#f70008", "#f2000d", "#ed0012", "#e80017", "#e3001c", "#de0021", "#d90026", "#d4002b", "#cf0030", "#c90036", "#c4003b", "#bf0040", "#ba0045", "#b5004a", "#b0004f", "#ab0054", "#a60059", "#a1005e", "#9c0063", "#960069", "#91006e", "#8c0073", "#870078", "#82007d", "#7d0082", "#780087", "#73008c", "#6e0091", "#690096", "#63009c", "#5e00a1", "#5900a6", "#5400ab", "#4f00b0", "#4a00b5", "#4500ba", "#4000bf", "#3b00c4", "#3600c9", "#3000cf", "#2b00d4", "#2600d9", "#2100de", "#1c00e3", "#1700e8", "#1200ed", "#0d00f2", "#0800f7", "#0300fc"];
+
+    $scope.carouselIndex = 3;
+
+    function addSlides(target, qty) {
+        for (var i=0; i < qty; i++) {
+          target.push({
+              id: (i + 1),
+              label: 'slide #' + (i + 1),
+              img: $rootScope.serverURI + '/images/img0'+i+'.jpg' ,
+              color: $scope.colors[ (i*10) % $scope.colors.length],
+              odd: (i % 2 === 0)
+          });
+        }
+    }
+
+    // 1st ngRepeat demo
+    $scope.slides = [];
+    addSlides($scope.slides, 5);
 
 
     $scope.signin = function(){
@@ -411,7 +434,7 @@ iceBirds.controller("signInController",function($rootScope,$scope,$http,$locatio
         var send_data = {mobileNumber: $scope.user.mobileNumber,password: $scope.user.password};
         var req = {
            method: 'POST',
-            url: 'http://estater.in:12345/login',
+            url: $rootScope.serverURI + '/login',
             headers: {'Content-Type': 'application/json'},
             data: send_data
         };
@@ -464,9 +487,10 @@ iceBirds.controller("signInController",function($rootScope,$scope,$http,$locatio
     }
 });
 
+
 iceBirds.controller("registerController",function($rootScope,$scope,$http,$location,$cordovaToast){
 
-    $rootScope.title = "Home Controller";
+    $rootScope.title = "Home Delivery";
     $scope.user = {mobileNumber:"",email:"", password : "", userName: ""};
     $scope.register = function(){
         var send_data = {mobileNumber: $scope.user.mobileNumber, email: $scope.user.email, password: $scope.user.password, userName: $scope.user.userName}
@@ -498,7 +522,7 @@ iceBirds.controller("registerController",function($rootScope,$scope,$http,$locat
         console.log(send_data);
         var req = {
            method: 'POST',
-            url: 'http://estater.in:12345/register',
+            url: $rootScope.serverURI + '/register',
             headers: {'Content-Type': 'application/json'},
             data: send_data
         };
@@ -555,15 +579,15 @@ iceBirds.controller("mapController",function($rootScope,$scope,$location,$http,$
         mapTypeId: google.maps.MapTypeId.ROADMAP,
          disableDefaultUI: true
         }
-    
+
     $scope.map = new google.maps.Map(document.getElementById('map'), mapOptions);
-    
+
     console.log("hi");
     console.log($rootScope.hotels);
     if($rootScope.mapVisited == undefined){
         var req = {
            method: 'GET',
-            url: 'http://estater.in:12345/hotels',
+            url: $rootScope.serverURI + '/hotels',
             headers: {'Content-Type': 'application/json'}
         };
         $rootScope.loading = true;
@@ -583,11 +607,11 @@ iceBirds.controller("mapController",function($rootScope,$scope,$location,$http,$
                 for(var i in markers)
                 {
                     var latlng = new google.maps.LatLng(markers[i].HT_LOCATION.Latitute,markers[i].HT_LOCATION.Longitude);
-                    
+
                     var contentString = '<div id="content">'+
                       '<h5 id="firstHeading" class="firstHeading" style="display:inline-block">'+markers[i].HT_NAME+'</h5>'+
                       '<div id="bodyContent" style="display:inline-block;float:right">'+
-                      '<a id="'+markers[i].HT_ID+'" onclick="order(this.id)"><b>ORDER</b></a>'+  
+                      '<a id="'+markers[i].HT_ID+'" onclick="order(this.id)"><b>ORDER</b></a>'+
                       '</div>'+
                       '</div>';
 
@@ -626,11 +650,11 @@ iceBirds.controller("mapController",function($rootScope,$scope,$location,$http,$
         {
             console.log(markers[i].HT_LOCATION.Latitute + "," + markers[i].HT_LOCATION.Longitude);
             var latlng = new google.maps.LatLng(markers[i].HT_LOCATION.Latitute,markers[i].HT_LOCATION.Longitude);
-                    
+
                     var contentString = '<div id="content">'+
                       '<h5 id="firstHeading" class="firstHeading" style="display:inline-block">'+markers[i].HT_NAME+'</h5>'+
                       '<div id="bodyContent" style="display:inline-block;float:right">'+
-                      '<a id="'+markers[i].HT_ID+'" onclick="order(this.id)"><b>ORDER</b></a>'+  
+                      '<a id="'+markers[i].HT_ID+'" onclick="order(this.id)"><b>ORDER</b></a>'+
                       '</div>'+
                       '</div>';
 
@@ -675,7 +699,7 @@ iceBirds.controller("mapController",function($rootScope,$scope,$location,$http,$
     }
 });
 
-iceBirds.controller("sideBarController",function($scope,$rootScope,$location){
+iceBirds.controller("sideBarController",function($scope,$rootScope,$location,SharedState){
     console.log($rootScope.loggedIn);
     $scope.userName = $rootScope.userName;
     if($rootScope.loggedIn == "true")
@@ -699,7 +723,11 @@ iceBirds.controller("sideBarController",function($scope,$rootScope,$location){
             break;
             case 3:
             break;
-            case 4: $rootScope.$broadcast('userLoggedOut');
+            case 4:
+              SharedState.turnOff('uiSidebarLeft');
+              SharedState.turnOn('uiSidebarRight');
+            break;
+            case 5: $rootScope.$broadcast('userLoggedOut');
                 $location.path("/login");
                 break;
         }
@@ -716,7 +744,7 @@ iceBirds.controller("homeController", function($rootScope,$scope,$location,$http
         $rootScope.loading = true;
         var req = {
            method: 'GET',
-            url: 'http://estater.in:12345/hotelCategories',
+            url: $rootScope.serverURI + '/hotelCategories',
             headers: {'Content-Type': 'application/json'}
         };
         $http(req).
@@ -767,8 +795,8 @@ iceBirds.controller("homeController", function($rootScope,$scope,$location,$http
         var str = category.GRP_NAME.replace(/\s+/g, '');
         str = str.toLowerCase();
         console.log("Inside set_background-"+str);
-        
-        return {background: "url('http://estater.in:12345/images/"+str+".jpg')","background-size":"100% 100%"};
+
+        return {"background": "url('" + $rootScope.serverURI + "/images/"+str+".jpg')","background-size":"100% 100%"};
     }
 
     $scope.showHotels = function(category){
@@ -779,9 +807,9 @@ iceBirds.controller("homeController", function($rootScope,$scope,$location,$http
     }
 
     $scope.toggle = function(category){
-        
+
         var index = $scope.hotelCats.indexOf(category);
-        
+
         for(var i in $scope.hotelCats)
         {
             if(i != index)
@@ -800,13 +828,13 @@ iceBirds.controller("homeController", function($rootScope,$scope,$location,$http
 iceBirds.controller("orderController", function($rootScope,$scope,$location,$http, SharedState,$cordovaToast){
 
     $scope.hotel  = $rootScope.hotel;
-    
+
     $rootScope.title = $rootScope.hotel.HT_NAME;
     if($rootScope.orderVisited == undefined)
     {
         var req = {
            method: 'GET',
-            url: 'http://estater.in:12345/foodCategories',
+            url: $rootScope.serverURI + '/foodCategories',
             headers: {'Content-Type': 'application/json'}
         };
         $rootScope.loading = true;
@@ -829,14 +857,14 @@ iceBirds.controller("orderController", function($rootScope,$scope,$location,$htt
             });
         });
 
-        
+
 
     }
 
     $scope.toggle = function(category){
-        
+
         var index = $scope.foodCats.indexOf(category);
-        
+
         for(var i in $scope.foodCats)
         {
             if(i != index)
@@ -910,7 +938,7 @@ iceBirds.controller("modal2Controller", function($rootScope,$timeout,$scope,$htt
         console.log(removeFromCart);
         var req = {
            method: 'POST',
-            url: 'http://estater.in:12345/removeFromCart',
+            url: $rootScope.serverURI + '/removeFromCart',
             headers: {'Content-Type': 'application/json'},
             data: removeFromCart
         };
@@ -961,7 +989,7 @@ iceBirds.controller("modal2Controller", function($rootScope,$timeout,$scope,$htt
         console.log(updateCart);
         var req = {
            method: 'POST',
-            url: 'http://estater.in:12345/cartUpdate',
+            url: $rootScope.serverURI + '/cartUpdate',
             headers: {'Content-Type': 'application/json'},
             data: updateCart
         };
@@ -974,7 +1002,7 @@ iceBirds.controller("modal2Controller", function($rootScope,$timeout,$scope,$htt
                 console.log(data.data);
                 $rootScope.cart = data.data.cart;
                 $rootScope.totalBill = data.data.totalBill;
-                
+
                 $rootScope.itemsQty = data.data.itemsQty;
 
                 $timeout(function(){
@@ -985,7 +1013,7 @@ iceBirds.controller("modal2Controller", function($rootScope,$timeout,$scope,$htt
                     // success
                 }, function (error) {
                     // error
-                });   
+                });
             }
             else
             {
@@ -993,7 +1021,7 @@ iceBirds.controller("modal2Controller", function($rootScope,$timeout,$scope,$htt
                     // success
                 }, function (error) {
                     // error
-                });   
+                });
             }
         }).
         error(function(data,status,headers,config){
@@ -1024,7 +1052,7 @@ iceBirds.controller("checkoutController", function($rootScope,$timeout,$cordovaT
         var placeOrder = {mobileNumber: $rootScope.mobileNumber,deliveryAddress:$scope.deliveryAddress};
         var req = {
            method: 'POST',
-            url: 'http://estater.in:12345/placeOrder',
+            url: $rootScope.serverURI + '/placeOrder',
             headers: {'Content-Type': 'application/json'},
             data: placeOrder
         };
@@ -1038,7 +1066,7 @@ iceBirds.controller("checkoutController", function($rootScope,$timeout,$cordovaT
                 $rootScope.totalBill = 0;
                 $rootScope.itemsQty = 0;
                 SharedState.turnOff('modal3');
-                 $cordovaToast.showLongCenter('Your Order has been successfully placed.').then(function(success) {
+                 $cordovaToast.showLongCenter('Your Order has been successfully placed. Your food will be delivered in 40 mins').then(function(success) {
                     // success
                 }, function (error) {
                     // error
@@ -1055,4 +1083,3 @@ iceBirds.controller("checkoutController", function($rootScope,$timeout,$cordovaT
 
     }
 });
-
